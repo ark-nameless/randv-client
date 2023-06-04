@@ -1,0 +1,54 @@
+<div class="flex flex-column w-full h-full">
+    <div class="flex justify-content-between align-content-center bg-primary h-auto w-full">
+        <div class="flex align-content-center justify-content-between pl-2">
+            <p class="text-left text-xs mr-2"><i class="pi pi-phone px-2" style="font-size: .75rem"></i>0917 866 8004
+            </p>
+            <p class="text-left text-xs mr-2"><i class="pi pi-envelope px-2"
+                    style="font-size: .75rem"></i>randvfarm@gmail.com</p>
+        </div>
+        <div class="flex justify-content-center align-content-center">
+            <p class="text-left text-xs mr-2">
+                <i class="pi pi-compass px-3" style="font-size: .75rem"></i>
+                <a href="https://www.google.com.ph/maps/place/R+%26+V+Private+Resort/@13.866192,121.5092786,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd37ced0a965b3:0x865a00c1ad6676be!8m2!3d13.866192!4d121.5118535!16s%2Fg%2F11nmj3sh_1?entry=ttu"
+                    target="_blank" rel="noopener noreferrer" class="text-blue-50 no-underline">
+                    Guisguis-Talon, Philippines
+                </a>
+            </p>
+            <p class="text-left text-xs mr-2">
+                <a href="https://www.facebook.com/randvfarm" target="_blank" rel="noopener noreferrer"
+                    class="text-blue-50 no-underline">
+                    <span class="pi pi-facebook"></span>
+                </a>
+            </p>
+        </div>
+        <p class="text-left text-xs mr-2">
+            <i class="pi pi-sign-out pr-1 pl-10" style="font-size: .75rem"></i>
+            <a class="text-blue-50 no-underline" routerLink="login">
+                Login
+            </a>
+        </p>
+    </div>
+
+    <div class="surface-300 flex w-screen h-auto justify-content-center align-content-center sticky top-0 z-5">
+        <div class="surface-300 flex justify-content-between align-content-center w-full xl:w-9 m-2">
+            <div class="flex flex-wrap align-items-center justify-content-center ">
+                <img src="assets/images/r&vlogo.jpg" alt="Image" height="50" class="border-circle">
+                <h1 class="font-sans text-xl ml-2">R & V Private Resort</h1>
+            </div>
+            
+            <div class="flex flex-wrap align-items-center justify-content-center row-gap-5">
+                <button pButton pRipple label="Home" class="text-black-alpha-90 surface-300" routerLink="landing-page"></button>
+                <button pButton pRipple label="Packages" class="text-black-alpha-90 surface-300" routerLink="packages"></button>
+                <button pButton pRipple label="About Us" class="text-black-alpha-90 surface-300" routerLink="contact"></button>
+                <button pButton pRipple label="Contact" class="text-black-alpha-90 surface-300" routerLink="contact"></button>
+                <button pButton pRipple label="Cancel Reservation" class="text-black-alpha-90 surface-300" routerLink="cancel"></button>
+            </div>
+
+            <div class="flex flex-wrap align-items-center justify-content-center row-gap-5">
+                <button pButton pRipple label="Book Now" routerLink="book"></button>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+</div>

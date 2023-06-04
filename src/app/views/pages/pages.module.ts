@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   ],
   imports: [
     FormsModule,
