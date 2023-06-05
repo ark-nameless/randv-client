@@ -5,12 +5,12 @@ import { AuthService } from 'src/app/services/auth.service';
 import { SessionService } from 'src/app/services/session.service';
 
 @Component({
-  selector: 'app-admin',
+  selector: 'app-staff',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
   providers: [MessageService]
 })
-export class IndexComponent {
+export class IndexStaffComponent {
   items: MenuItem[] = [];
   username: string = '';
 

@@ -5,6 +5,7 @@ import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MenubarModule } from 'primeng/menubar';
+import { EditorModule } from 'primeng/editor';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { IndexComponent } from './index/index.component';
@@ -14,17 +15,26 @@ import { RippleModule } from 'primeng/ripple';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { InjectHTMLDirective } from 'src/app/directives/inject-html.directive';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
     IndexComponent,
     DashboardComponent,
     SettingsComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    InjectHTMLDirective,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    QuillModule.forRoot(),
 
     ButtonModule,
     ToastModule,
@@ -33,6 +43,8 @@ import { ReservationsComponent } from './reservations/reservations.component';
     InputTextModule,
     TieredMenuModule,
     RippleModule,
+    EditorModule,
+    CardModule,
   ]
 })
 export class AdminModule { }

@@ -1,1 +1,46 @@
-<p>settings works!</p>
+<div class="flex flex-column p-3 w-full h-full">
+    <div class="flex w-full gap-2">
+        <div class="flex flex-column w-6">
+            <h1 class="font-bold text-xl">Package Card Design</h1>
+            <p-card [style]="{ padding: '0px', margin: '0px' }" class="w-full">
+                <div class=" m-0 p-0" [injectHTML]="text">
+                </div>
+                <ng-template pTemplate="footer">
+                    <div class="flex justify-content-between w-full">
+                        <p class="text-700 text-lg font-bold">Day Fee: {{dayPrice}}</p>
+                        <p class="text-700 text-lg font-bold">Overnight: {{nightPrice}}</p>
+                    </div>
+                </ng-template>
+            </p-card>
+        </div>
+        <div class="flex flex-column w-6 h-max">
+            <p-toast></p-toast>
+            <h1 class="font-bold text-xl">Package Card Design</h1>
+            <div class="flex flex-column  border-2 border-round p-2 gap-2">
+                <div class="flex flex-column gap-1">
+                    <p class="text-xl">8am - 5pm:</p>
+                    <span class="p-float-label w-full">
+                        <input pInputText id="dayPrice" [(ngModel)]="dayPrice" class="w-full"/>
+                        <label htmlFor="dayPrice">Day Time Fee</label>
+                    </span>
+                </div>
+                <div class="flex flex-column gap-1">
+                    <p class="text-xl">7pm - 7am:</p>
+                    <span class="p-float-label w-full">
+                        <input pInputText id="nightPrice" [(ngModel)]="nightPrice" class="w-full"/>
+                        <label htmlFor="nightPrice">Overnight Fee</label>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card pt-5">
+        <p-editor [(ngModel)]="text" [style]="{ height: '360px' }" class="" [modules]="modules"></p-editor>
+    </div>
+
+    <div class="flex flex-wrap justify-content-end my-3">
+        <p-button label="Create New Package" (onClick)="onSubmit()"></p-button>
+    </div>
+</div>

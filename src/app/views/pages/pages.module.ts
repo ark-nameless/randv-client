@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RippleModule } from 'primeng/ripple';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,14 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
     CommonModule,
+    HttpClientModule,
+
     CheckboxModule,
     ButtonModule,
     InputTextModule,
     ImageModule,
     RippleModule,
+    ToastModule,
   ]
 })
 export class PagesModule { }

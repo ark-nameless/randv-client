@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SessionService } from './session.service';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +16,11 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any>{
-      return this.http.post(environment.API_URL + '/auth/login', {
-          username, 
-          password 
-      }, this.httpOptions)
+      var form = new FormData;
+      form.append('username', username)
+      form.append('password', password)
+
+      return this.http.post(environment.API_URL + '/auth/login', form)
   }
 
   signOut(): void {
