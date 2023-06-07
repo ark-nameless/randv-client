@@ -1,0 +1,53 @@
+<p-card>
+    <ng-template pTemplate="title"> Payment and Confirmation </ng-template>
+    <ng-template pTemplate="subtitle"> Enter your personal information</ng-template>
+    <ng-template pTemplate="content">
+
+        <div class="flex gap-2">
+            <div class="w-full border-2 border-200 border-round p-2">
+                <p-tabView>
+                    <p-tabPanel header="Accomodation Summary">
+                        <div *ngFor="let accomodation of selectedAccomodations" class="flex flex-column w-full gap-2 m-0 p-2 border-2 border-200 border-round">
+                            <p class="m-0 p-0">Accomodation Name: {{accomodation.name}}</p>
+                            <p class="m-0 p-0">Quantity: {{accomodation.reserveQuantity}}</p>
+                            <p class="m-0 p-0">Price: {{accomodation.total}}</p>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Entrace Fee Summary">
+                        <div *ngFor="let entraceFee of selectedEntraceFees" class="flex flex-column w-full gap-2 m-0 p-2 border-2 border-200 border-round">
+                            <p class="m-0 p-0">Guest Type: {{entraceFee.name}}</p>
+                            <p class="m-0 p-0">Quantity: {{entraceFee.reserveQuantity}}</p>
+                            <p class="m-0 p-0">Price: {{entraceFee.total}}</p>
+                        </div>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+            <div class="w-full border-2 border-200 border-round p-2">
+                <div class="flex flex-row w-full justify-content-center align-content-center gap-5">
+                    <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg" alt="Image" width="250"></p-image>
+                    <div class="flex flex-column gap-3">
+                        <p class="m-0 p-0">
+                            The Total Amount of payment is <span class="m-0 p-0 font-bold">{{ grandTotal }}</span>
+                        </p>
+                        <p class="m-0 p-0">
+                            Please Scan this QR Code using GCash to perform the necessary amount of payment. 
+                        </p>
+                        <p class="m-0 p-0 font-bold ">
+                            After the payment, please enter the reference no in the field below.
+                        </p>
+                        <input pInputText type="number" placeholder="284915551" [(ngModel)]="referenceNo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="grid grid-nogutter justify-content-end">
+            <div class="flex gap-2">
+                <!-- <p-button  (onClick)="checkAvailability()" label="Check Availability" styleClass="p-button-raised" icon="pi pi-send"></p-button> -->
+                <!-- <p-button [disabled]="filledUp()" (onClick)="nextPage()" label="Next" icon="pi pi-angle-right" iconPos="right"></p-button> -->
+                <p-button label="Book Now" (click)="onSubmit()"></p-button>
+            </div>
+        </div>
+    </ng-template>
+</p-card>

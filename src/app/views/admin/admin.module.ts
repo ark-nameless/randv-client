@@ -19,6 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { InjectHTMLDirective } from 'src/app/directives/inject-html.directive';
 import { QuillModule } from 'ngx-quill';
+import { DirectivesModule } from 'src/app/directives/directives.module';
+import { KeyFilterModule } from 'primeng/keyfilter';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +29,14 @@ import { QuillModule } from 'ngx-quill';
     DashboardComponent,
     SettingsComponent,
     ReservationsComponent,
-    InjectHTMLDirective,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+
+    DirectivesModule,
 
     QuillModule.forRoot(),
 
@@ -45,6 +49,7 @@ import { QuillModule } from 'ngx-quill';
     RippleModule,
     EditorModule,
     CardModule,
+    KeyFilterModule,
   ]
 })
 export class AdminModule { }

@@ -1,0 +1,44 @@
+<p-card>
+    <ng-template pTemplate="title"> Customer Information </ng-template>
+    <ng-template pTemplate="subtitle"> Enter your personal information</ng-template>
+    <ng-template pTemplate="content">
+        <div class="p-fluid">
+            <div class="flex gap-2 mb-2">
+                <div class="w-full">
+                    <label for="customer_name">Customer Name:</label>
+                    <input #customer_name="ngModel" id="customer_name" type="text" required pInputText
+                        [(ngModel)]="info.customer_name" />
+                    <!-- <small *ngIf="(firstname.invalid && submitted) || (firstname.dirty && firstname.invalid)" class="p-error">Firstname is required.</small> -->
+                </div>
+                <div class="w-full">
+                    <label for="contact_no">Contact Number: </label>
+                    <input #contact_no="ngModel" id="contact_no" type="number" required pInputText 
+                        [(ngModel)]="info.contact_no"/>
+                    <!-- <small *ngIf="(firstname.invalid && submitted) || (firstname.dirty && firstname.invalid)" class="p-error">Firstname is required.</small> -->
+                </div>
+            </div>
+            <div class="flex w-full h-auto gap-2 mb-2">
+                <div class="w-6 flex flex-column">
+                    <label for="email">Customer Email:</label>
+                    <input #customer_name="ngModel" id="email" type="text" required pInputText
+                        [(ngModel)]="info.email" />
+                </div>
+                <div class="flex flex-column w-4">
+                    <label>Reservation Date:</label>
+                    <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="rangeDates" selectionMode="range"
+                        [readonlyInput]="true" [showButtonBar]="true"></p-calendar>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="grid grid-nogutter justify-content-end">
+            <div class="flex gap-2">
+                <p-button  (onClick)="checkAvailability()" label="Check Availability" styleClass="p-button-raised" icon="pi pi-send"></p-button>
+                <p-button [disabled]="filledUp()" (onClick)="nextPage()" label="Next" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </div>
+    </ng-template>
+</p-card>
+
+<!-- [ngClass]="{ 'ng-dirty': (firstname.invalid && submitted) || (firstname.dirty && firstname.invalid) }" -->

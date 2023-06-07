@@ -1,0 +1,45 @@
+<p-card header="Select Your Guests">
+    <p-dataView #dv [value]="entraceFees" [rows]="5" [paginator]="true">
+        <ng-template let-entraceFee pTemplate="listItem">
+            <div class="col-12">
+                <div class="flex flex-column xl:flex-row xl:align-items-start p-2 gap-2  m-0">
+                    <div class="flex flex-column sm:flex-row justify-content-between align-items-center 
+                                xl:align-items-start gap-2">
+                        <div class="flex flex-column align-items-center sm:align-items-start gap-1 m-0">
+                            <div class="text-xl font-bold text-900 m-0">{{ entraceFee.name }}</div>
+                            <div class="text-xl font-bold text-700 m-0">Notes: {{ entraceFee.notes }}</div>
+                        </div>
+                        <div class="flex justify-content-end align-items-center gap-5">
+                            <div class="flex flex-column align-items-center sm:align-items-start  gap-1 m-0">
+                                <div class="flex justify-content-end align-items-end gap-5 m-0">
+                                    <div *ngFor="let price of entraceFee.prices" class="flex  w-max">
+                                        <p-radioButton [inputId]="entraceFee.name" name="price" [value]="price.type"
+                                            [(ngModel)]="entraceFee.selectedTime"></p-radioButton>
+                                        <div class="flex flex-column gap-2">
+                                            <label [for]="price.type" class="ml-2">{{ price.label }}</label>
+                                            <label [for]="price.type" class="ml-2">{{ price.price }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-column p-0 mb-2">
+                                <label class="ml-2">No. of Guests</label>
+                                <input pInputText type="number" placeholder="1" [(ngModel)]="entraceFee.reserveQuantity" />
+                            </div>
+                            <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                                <button pButton icon="pi pi-shopping-cart"
+                                    class="md:align-self-end mb-2 p-button-rounded" (click)="selectItem(entraceFee)"
+                                    [disabled]="(entraceFee.selectedTime == 0 || entraceFee.reserveQuantity == 0) || inCart(entraceFee.id)">
+                                </button>
+                                <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger" 
+                                    (click)="removeFromCart(entraceFee.id)"
+                                    [disabled]="!inCart(entraceFee.id)">
+                                </p-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</p-card>

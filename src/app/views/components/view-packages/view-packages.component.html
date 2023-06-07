@@ -1,0 +1,24 @@
+<p-carousel [value]="packages" [numVisible]="2" [numScroll]="2" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+        <p>All Packages</p>
+    </ng-template>
+    <ng-template let-package pTemplate="item">
+        <div class="package-item gap-2 p-2">
+            <div class="flex flex-column w-full h-max">
+                <p-card [style]="{ padding: '0px', margin: '0px' }" class="w-full">
+                    <div class=" m-0 p-0" [injectHTML]="package.content">
+                    </div>
+                    <ng-template pTemplate="footer">
+                        <div class="flex justify-content-between w-full">
+                            <p class="text-700 text-lg font-bold">Day Fee: {{package.day_fee}}</p>
+                            <p class="text-700 text-lg font-bold">Overnight: {{package.night_fee}}</p>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p>Footer content</p>
+    </ng-template>
+</p-carousel>

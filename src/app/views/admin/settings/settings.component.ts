@@ -20,6 +20,7 @@ export class SettingsComponent {
   text: string = '';
   dayPrice: string = '';
   nightPrice: string = '';
+  wholeDayPrice: string = '';
 
   modules = {}
   
@@ -36,8 +37,9 @@ export class SettingsComponent {
   onSubmit() {
     var data = {
       content: this.text,
-      day_fee: parseInt(this.dayPrice) || 0,
-      night_fee: parseInt(this.nightPrice) || 0
+      day_fee: parseInt(this.dayPrice) || 1,
+      night_fee: parseInt(this.nightPrice) || 1,
+      whole_day: parseInt(this.wholeDayPrice) || parseInt(this.dayPrice) + parseInt(this.nightPrice)
     };
 
     console.log('monster');

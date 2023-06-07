@@ -41,7 +41,7 @@ export class UnAuthorizedInterceptor implements HttpInterceptor {
           // Access token expired, try to refresh the token
           if (!this.isRefreshing) {
             this.isRefreshing = true;
-            return this.sessionService.refreshAuthToken().pipe(
+            return this.sessionService.refreshToken().pipe(
               switchMap(() => {
                 // Retry the original request with the new access token
                 const newAccessToken = this.sessionService.getAccessToken();
