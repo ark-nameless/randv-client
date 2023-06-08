@@ -1,19 +1,33 @@
-<div class="flex flex-column pt-5">
-    <h1 class="font-bold text-5xl">
-        Enjoy our Amnities
-    </h1> 
-    <p-galleria class=" surface-900" [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5">
-        <ng-template pTemplate="item" let-item>
-            <img [src]="item.itemImageSrc" style="object-fit:cover; height: 500px; width: auto;" />
-        </ng-template>
-        <ng-template pTemplate="thumbnail" let-item>
-            <div class="grid grid-nogutter justify-content-center overflow-hidden">
-                <img [src]="item.thumbnailImageSrc" style="object-fit:cover; max-height: 150px; overflow: hidden;"/>
-            </div>
-        </ng-template>
-        <ng-template pTemplate="caption" let-item>
-            <h4 style="margin-bottom: .5rem; color: #ffffff;">{{ item.title }}</h4>
-            <p>{{ item.alt }}</p>
-        </ng-template>
-    </p-galleria>
+<div class="flex w-screen h-auto justify-content-center align-content-center background-container">
+    <div class="flex flex-column w-full xl:w-9 m-2 h-8 pb-5">
+        <h1 class="font-bold text-5xl pb-4">
+            Enjoy our Amnities
+        </h1>
+        <p-galleria #galleria [value]="images" [(activeIndex)]="activeIndex" [numVisible]="5" [autoPlay]="true"
+            [circular]="true" [showThumbnails]="showThumbnails" [showItemNavigators]="true"
+            [showItemNavigatorsOnHover]="true" [circular]="true" [autoPlay]="true" [transitionInterval]="5000"
+            [containerStyle]="{ 'max-width': '100%' }" [containerClass]="galleriaClass()">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.itemImageSrc" style="object-fit:cover; height: 500px; width: auto;" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="item.thumbnailImageSrc"
+                        style="object-fit:cover; max-height: 150px; overflow: hidden;" />
+                </div>
+            </ng-template>
+            <ng-template pTemplate="footer" let-item>
+                <div class="custom-galleria-footer">
+                    <button type="button" pButton icon="pi pi-list" (click)="onThumbnailButtonClick()"></button>
+                    <span *ngIf="images" class="title-container">
+                        <span>{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="title">{{ images[activeIndex].title }}</span>
+                        <span>{{ images[activeIndex].alt }}</span>
+                    </span>
+                    <button type="button" pButton [icon]="fullScreenIcon()" (click)="toggleFullScreen()"
+                        class="fullscreen-button"></button>
+                </div>
+            </ng-template>
+        </p-galleria>
+    </div>
 </div>
