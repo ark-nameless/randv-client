@@ -1,0 +1,8 @@
+
+.background-container{
+    background-image: url('/assets/images/Entrance.jpg');
+    background-color:rgb(131, 131, 131);
+    background-size: cover;
+    background-position: center;
+    /* opacity: .7; */
+}

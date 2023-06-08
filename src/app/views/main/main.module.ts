@@ -39,6 +39,16 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { AccordionModule } from 'primeng/accordion';
 import { TabViewModule } from 'primeng/tabview';
 import { ImageModule } from 'primeng/image';
+import { CarouselModule } from 'primeng/carousel';
+import { DirectivesModule } from 'src/app/directives/directives.module';
+import { BookPackageComponent } from './extras/book-package/book-package.component';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ListboxModule } from 'primeng/listbox';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { AmnetiesComponent } from './extras/amneties/amneties.component';
+import { GalleriaModule } from 'primeng/galleria';
+import { FooterComponent } from './extras/footer/footer.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 
 
@@ -54,7 +64,10 @@ import { ImageModule } from 'primeng/image';
     CustomerInfoComponent,
     AccomodationInfoComponent,
     GuestEntraceInfoComponent,
-    PaymentConfirmationComponent
+    PaymentConfirmationComponent,
+    BookPackageComponent,
+    AmnetiesComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -62,6 +75,7 @@ import { ImageModule } from 'primeng/image';
     FormsModule,
 
     ComponentsModule,
+    DirectivesModule,
 
     DragDropModule,
     ButtonModule,
@@ -87,7 +101,13 @@ import { ImageModule } from 'primeng/image';
     AccordionModule,
     TabViewModule,
     ImageModule,
-
+    CarouselModule,
+    SelectButtonModule,
+    ListboxModule,
+    ContextMenuModule,
+    GalleriaModule,
+    InputTextareaModule,
+    
   ]
 })
 export class MainModule { }

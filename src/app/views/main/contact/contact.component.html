@@ -1,1 +1,26 @@
-<p>contact works!</p>
+<div class="flex w-screen h-auto justify-content-center align-content-center pb-2 md:pb-4 lg:pb-8 background-container">
+    <div class="flex flex-column w-full xl:w-9 m-2 h-8">
+        <h1 class="font-bold text-5xl pt-3 pl-8">
+            Get in touch
+            <!-- <p>Enjoy life while you're young and able.</p> -->
+        </h1> 
+        <div class="flex flex-column lg:flex-row w-full justify-content-between gap-2">
+            <div class="flex flex-column justify-content-start lg:justify-content-center align-content-start lg:align-content-center flex-wrap w-full px-8 py-8 lg:p-4 lg:p-8 shadow-2 border-round gap-4 ">
+                <i class="pi pi-phone" style="font-size: 2.5rem"></i>
+                <div class="text-3xl font-medium text-900 mb-3">Talk to Us</div>
+                <div class="font-medium text-500 mb-3">Don't know how to start? You can contact us on</div>
+                <!-- <div style="height: 150px" class="border-2 border-dashed surface-border"></div> -->
+                <div class="font-medium text-800 ">0917 866 8004</div>
+                <div class="font-medium text-800 ">randvfarm@gmail.com</div>
+            </div>
+            <div class="flex flex-column w-full p-8 shadow-2 border-round gap-2 ">
+                <!-- <i class="pi pi-phone" style="font-size: 2.5rem"></i> -->
+                <div class="text-3xl font-medium text-900 mb-3">Have any Comments? </div>
+                <div class="font-medium text-500 mb-3">Please send us a message</div>
+                <!-- <div style="height: 150px" class="border-2 border-dashed surface-border"></div> -->
+                <textarea rows="15" pInputTextarea [(ngModel)]="comment"></textarea>
+                <p-button (onClick)="onSubmit()"label="Send" class="w-full"></p-button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,10 +17,14 @@ import { SettingsComponent } from './settings/settings.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
-import { InjectHTMLDirective } from 'src/app/directives/inject-html.directive';
 import { QuillModule } from 'ngx-quill';
 import { DirectivesModule } from 'src/app/directives/directives.module';
 import { KeyFilterModule } from 'primeng/keyfilter';
+import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @NgModule({
@@ -50,6 +54,12 @@ import { KeyFilterModule } from 'primeng/keyfilter';
     EditorModule,
     CardModule,
     KeyFilterModule,
+    TableModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    ConfirmPopupModule,
+    ConfirmDialogModule,
+    
   ]
 })
 export class AdminModule { }

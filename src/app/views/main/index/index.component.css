@@ -1,0 +1,6 @@
+
+.background-container{
+    background-image: url('/assets/images/bg-pattern.jpg');
+    background-size: cover;
+    background-position: center;
+}

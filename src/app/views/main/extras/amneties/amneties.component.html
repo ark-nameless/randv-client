@@ -1,0 +1,19 @@
+<div class="flex flex-column pt-5">
+    <h1 class="font-bold text-5xl">
+        Enjoy our Amnities
+    </h1> 
+    <p-galleria class=" surface-900" [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.itemImageSrc" style="object-fit:cover; height: 500px; width: auto;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center overflow-hidden">
+                <img [src]="item.thumbnailImageSrc" style="object-fit:cover; max-height: 150px; overflow: hidden;"/>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="caption" let-item>
+            <h4 style="margin-bottom: .5rem; color: #ffffff;">{{ item.title }}</h4>
+            <p>{{ item.alt }}</p>
+        </ng-template>
+    </p-galleria>
+</div>

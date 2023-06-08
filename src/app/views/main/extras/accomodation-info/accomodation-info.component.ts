@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AccomodationsService } from 'src/app/apis/accomodations.service';
+import { ReservationsService } from 'src/app/apis/reservations.service';
 import { BookingInfoService } from 'src/app/services/booking-info.service';
 
 @Component({
@@ -13,9 +15,11 @@ export class AccomodationInfoComponent {
   selectedAccomodations: any = [];
 
   constructor(
+    private router: Router,
     private accomodationService: AccomodationsService,
     private messageService: MessageService,
     private bookingInfoService: BookingInfoService,
+    private reservationsService: ReservationsService,
   ) {
 
   }
@@ -73,4 +77,40 @@ export class AccomodationInfoComponent {
       return obj.id !== id;
     })
   }
+
+  prevPage() {
+    this.router.navigate(['book/customers']);
+  }
+
+  nextPage() {
+    this.router.navigate(['book/guests']);
+  }
+  
+  checkAvailability() {
+    var info = this.bookingInfoService.bookingInfo;
+
+
+    var payload = {
+      customer_name: info.customer_name,
+      email: info.email,
+      contact_no: info.contact_no,
+
+      arrival: info.arrival,
+      departure: info.departure,
+
+      selected_accomodations: info.selected_accomodations,
+      type: 'individual',
+    }
+
+    this.reservationsService.checkReservationAvailability(payload).subscribe(
+      (data: any) => {
+        console.log(data)
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Your Reservation is Available, You can Proceed to click \'Next\'' });
+      }, (err: any) => {
+        console.log(err);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Accomodation Reservation Unavailable, Please check other accomodation or change your date of stay. Thank you' });
+      }
+    );
+  }
+  
 }

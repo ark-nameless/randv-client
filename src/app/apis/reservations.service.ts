@@ -27,7 +27,32 @@ export class ReservationsService {
     return this.http.post<any>(this.apiURL + "/reservation/individual", JSON.stringify(data), this.httpOptions);
   }
 
+  createNewPackageReservation(data: any): Observable<any> {
+    return this.http.post<any>(this.apiURL + "/reservation/package", JSON.stringify(data), this.httpOptions);
+  }
+
+  checkReservationAvailability(data: any): Observable<any> {
+    return this.http.post<any>(this.apiURL + "/reservation/check", JSON.stringify(data), this.httpOptions);
+  }
+
   getAllReservations(): Observable<any> {
     return this.http.get<any>(this.apiURL + "/reservation", this.httpOptions);
   }
+
+  checkIn(id: any): Observable<any> {
+    return this.http.post<any>(this.apiURL + '/reservation/checkin/' + id, '', this.httpOptions)
+  }
+
+  checkOut(id: any): Observable<any> {
+    return this.http.post<any>(this.apiURL + '/reservation/checkout/' + id, '', this.httpOptions)
+  }
+
+  togglePaid(id: any): Observable<any> {
+    return this.http.post<any>(this.apiURL + '/reservation/toggle-paid/' + id, '', this.httpOptions)
+  }
+
+  cancelReservation(id: any): Observable<any> {
+    return this.http.post<any>(this.apiURL + '/reservation/cancel/' + id, '', this.httpOptions)
+  }
+
 }

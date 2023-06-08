@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AccomodationsService } from 'src/app/apis/accomodations.service';
 import { EntraceFeesService } from 'src/app/apis/entrace-fees.service';
@@ -14,6 +15,7 @@ export class GuestEntraceInfoComponent {
   selectedAccomodations: any = [];
 
   constructor(
+    private router: Router,
     private entraceFeeService: EntraceFeesService,
     private messageService: MessageService,
     private bookingInfoService: BookingInfoService,
@@ -70,5 +72,13 @@ export class GuestEntraceInfoComponent {
     this.bookingInfoService.bookingInfo.selected_entrace = list.filter((obj: any) => {
       return obj.id !== id;
     })
+  }
+
+  prevPage() {
+    this.router.navigate(['book/accomodations']);
+  }
+
+  nextPage() {
+    this.router.navigate(['book/payment']);
   }
 }

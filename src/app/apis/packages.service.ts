@@ -30,4 +30,8 @@ export class PackagesService {
   getAllPackages(): Observable<any> {
     return this.http.get<any>(this.apiURL + "/package", this.httpOptions);
   }
+
+  getPackage(id: string): Observable<any> {
+    return this.http.get<any>(this.apiURL + "/package/" + id, this.httpOptions);
+  }
 }

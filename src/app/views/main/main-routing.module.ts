@@ -11,9 +11,11 @@ import { CustomerInfoComponent } from './extras/customer-info/customer-info.comp
 import { AccomodationInfoComponent } from './extras/accomodation-info/accomodation-info.component';
 import { GuestEntraceInfoComponent } from './extras/guest-entrace-info/guest-entrace-info.component';
 import { PaymentConfirmationComponent } from './extras/payment-confirmation/payment-confirmation.component';
+import { BookPackageComponent } from './extras/book-package/book-package.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
+  { path: 'book', redirectTo: 'book/customers', pathMatch: 'full' },
   {
     path: '', component: IndexComponent, canActivate: [],
     children: [
@@ -21,14 +23,15 @@ const routes: Routes = [
       { path: 'about', component: AboutUsComponent },
       { path: 'contact', component: ContactComponent },
       { 
-        path: 'book', component: BookComponent ,
+        path: 'book', component: BookComponent,
         children: [
           { path: 'customers', component: CustomerInfoComponent },
           { path: 'accomodations', component: AccomodationInfoComponent },
           { path: 'guests', component: GuestEntraceInfoComponent },
-          { path: 'payment', component: PaymentConfirmationComponent }
+          { path: 'payment', component: PaymentConfirmationComponent },
         ]
       },
+      { path: 'book-package/:id', component: BookPackageComponent }, 
       { path: 'cancel', component: CancelReservationComponent },
       { path: 'packages', component: PackagesComponent },
     ]

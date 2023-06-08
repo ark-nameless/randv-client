@@ -1,5 +1,50 @@
-<div class="flex w-screen h-auto justify-content-center align-content-center sticky top-0 z-5">
-    <div class="flex justify-content-between align-content-center w-full xl:w-9 m-2">
-        <app-view-packages class="w-full"></app-view-packages>
+<div class="flex w-screen h-auto justify-content-center align-content-center background-container">
+    <div class="flex flex-column w-full xl:w-9 m-2 h-8">
+        <h1 class="font-bold text-5xl pb-5 pl-5">
+            Enjoy the Amazing packages that our resort offers
+        </h1>
+        <p-carousel [value]="packages" [numVisible]="3" [numScroll]="3" [responsiveOptions]="responsiveOptions">
+            <ng-template let-package pTemplate="item">
+                <!-- <div class="package-item gap-2 p-2">
+                    <div class="flex flex-column w-full h-max">
+                        <p-card [style]="{ padding: '0px', margin: '0px' }" class="w-full" header="{{package.name}}">
+                            <div class=" m-0 p-0" [injectHTML]="package.content">
+                            </div>
+                            <ng-template pTemplate="footer">
+                                <div *ngFor="let plan of package.plans"
+                                    class="flex justify-content-between w-full gap-2 mb-2">
+                                    <p class="text-700 text-lg font-bold m-0 p-0">{{ plan.label }}: {{package.price}}
+                                        ({{plan.start_time}} - {{plan.end_time}})</p>
+                                </div>
+                                <p-button label="Book Now" (click)="bookPackage(package.id, package)"></p-button>
+                            </ng-template>
+                        </p-card>
+                    </div>
+                </div> -->
+                <!-- <div class="grid">
+                    <div class="col-12 lg:col-4"> -->
+                <div class="p-3 h-full">
+                    <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
+                        <div class="text-900 font-medium text-xl mb-2">{{package.name}}</div>
+                        <div class="text-600">Package Name</div>
+                        <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                        <div class="flex align-items-center">
+                            <div class=" m-0 p-0" [injectHTML]="package.content"></div>
+                        </div>
+                        <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                        <ul class="list-none p-0 m-0 flex-grow-1">
+                            <li *ngFor="let plan of package.plans" class="flex align-items-center mb-3">
+                                <i class="pi pi-money-bill text-purple-500 mr-2"></i>
+                                <span class="text-700 text-lg font-bold m-0 p-0">{{ plan.label }}: {{package.price}}
+                                    ({{plan.start_time}} - {{plan.end_time}})</span>
+                            </li>
+                        </ul>
+                        <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                        <button pButton pRipple label="Book Now" class="p-3 w-full mt-auto"
+                            (click)="bookPackage(package.id, package)"></button>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
     </div>
 </div>

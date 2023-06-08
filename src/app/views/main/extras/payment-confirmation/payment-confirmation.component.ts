@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ReservationsService } from 'src/app/apis/reservations.service';
 import { BookingInfoService } from 'src/app/services/booking-info.service';
@@ -18,6 +19,7 @@ export class PaymentConfirmationComponent {
   referenceNo: any = '';
 
   constructor(
+    private router: Router,
     private bookingInfoService: BookingInfoService,
     private reservationsService: ReservationsService,
     private messageService: MessageService,
@@ -27,9 +29,18 @@ export class PaymentConfirmationComponent {
     this.bookInfo = bookingInfoService.bookingInfo;
 
     this.selectedAccomodations.forEach((e: any) => {
+      var multiplier = 1;
+      if (this.bookInfo.departure !== '') {
+        var start = new Date(this.bookInfo.arrival);
+        var end = new Date(this.bookInfo.departure);
+        var diff = Math.abs(start.getTime() - end.getTime());
+        var diffDays = Math.ceil(diff / (1000 * 3600 * 24)); 
+        multiplier += diffDays
+      }
+
       var plan = e.prices.filter((v: any) => v.type === e.selectedTime)[0];
       e.selectedPlan = plan;
-      e.total = plan.price * e.reserveQuantity;
+      e.total = plan.price * e.reserveQuantity * multiplier;
       this.grandTotal += e.total * e.reserveQuantity
     })
 
@@ -39,6 +50,10 @@ export class PaymentConfirmationComponent {
       e.total = plan.price * e.reserveQuantity;
       this.grandTotal += e.total;
     })
+  }
+
+  prevPage() {
+    this.router.navigate(['book/guests']);
   }
 
   onSubmit() {
@@ -58,13 +73,12 @@ export class PaymentConfirmationComponent {
         payload.contact_no != '' && payload.email != '') {
       this.reservationsService.createNewIndividualReservation(payload).subscribe(
         (data) => {
-          console.log()
+          console.log();
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Your Reservation is successful, please wait for the email that we will send you. Thank you' });
+          setTimeout(() => {this.router.navigate(['/'])}, 3000);
         },
         (err) => {
           console.log(err);
-          // if (err.status === 403 && err.error.detail.search('validate credentials') != -1) {
-          //   this.reservationsService.createNewPackage(data).subscribe(data => {console.log(data)})
-          // } 
         }
       )
     } else {
