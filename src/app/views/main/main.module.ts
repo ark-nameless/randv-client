@@ -49,6 +49,7 @@ import { AmnetiesComponent } from './extras/amneties/amneties.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { FooterComponent } from './extras/footer/footer.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 
 
 
@@ -67,7 +68,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     PaymentConfirmationComponent,
     BookPackageComponent,
     AmnetiesComponent,
-    FooterComponent
+    FooterComponent,
+    TermsOfServiceComponent
   ],
   imports: [
     CommonModule,

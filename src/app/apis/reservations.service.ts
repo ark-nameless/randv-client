@@ -40,19 +40,19 @@ export class ReservationsService {
   }
 
   checkIn(id: any): Observable<any> {
-    return this.http.post<any>(this.apiURL + '/reservation/checkin/' + id, '', this.httpOptions)
+    return this.http.put<any>(this.apiURL + '/reservation/checkin/' + id, '', this.httpOptions)
   }
 
   checkOut(id: any): Observable<any> {
-    return this.http.post<any>(this.apiURL + '/reservation/checkout/' + id, '', this.httpOptions)
+    return this.http.put<any>(this.apiURL + '/reservation/checkout/' + id, '', this.httpOptions)
   }
 
   togglePaid(id: any): Observable<any> {
-    return this.http.post<any>(this.apiURL + '/reservation/toggle-paid/' + id, '', this.httpOptions)
+    return this.http.put<any>(this.apiURL + '/reservation/paid/toggle' + id, '', this.httpOptions)
   }
 
   cancelReservation(id: any): Observable<any> {
-    return this.http.post<any>(this.apiURL + '/reservation/cancel/' + id, '', this.httpOptions)
+    return this.http.put<any>(this.apiURL + '/reservation/cancel/' + id, '', this.httpOptions)
   }
 
 }

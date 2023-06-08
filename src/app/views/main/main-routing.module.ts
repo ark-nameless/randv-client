@@ -12,6 +12,7 @@ import { AccomodationInfoComponent } from './extras/accomodation-info/accomodati
 import { GuestEntraceInfoComponent } from './extras/guest-entrace-info/guest-entrace-info.component';
 import { PaymentConfirmationComponent } from './extras/payment-confirmation/payment-confirmation.component';
 import { BookPackageComponent } from './extras/book-package/book-package.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'book-package/:id', component: BookPackageComponent }, 
       { path: 'cancel', component: CancelReservationComponent },
       { path: 'packages', component: PackagesComponent },
+      { path: 'terms-of-service', component: TermsOfServiceComponent },
     ]
   }
 ];
