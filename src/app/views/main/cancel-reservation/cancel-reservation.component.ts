@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cancel-reservation',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class CancelReservationComponent {
 
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+    
+  }
 }

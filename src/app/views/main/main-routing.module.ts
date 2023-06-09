@@ -33,7 +33,7 @@ const routes: Routes = [
         ]
       },
       { path: 'book-package/:id', component: BookPackageComponent }, 
-      { path: 'cancel', component: CancelReservationComponent },
+      { path: 'cancel/:id', component: CancelReservationComponent },
       { path: 'packages', component: PackagesComponent },
       { path: 'terms-of-service', component: TermsOfServiceComponent },
     ]
