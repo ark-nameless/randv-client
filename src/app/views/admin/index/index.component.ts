@@ -7,7 +7,7 @@ import { SessionService } from 'src/app/services/session.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css'],
+  styleUrls: ['./index.component.scss'],
   providers: [MessageService]
 })
 export class IndexComponent {
@@ -18,7 +18,7 @@ export class IndexComponent {
     private router: Router,
     private authService: AuthService,
     private sessionService: SessionService,
-    private messageService: MessageService,
+    // private messageService: MessageService,
   ) 
   { }
 
