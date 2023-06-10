@@ -1,1 +1,20 @@
-<p>cancel-reservation works!</p>
+<div class="flex w-screen h-auto justify-content-center align-content-center pb-2 md:pb-4 lg:pb-8 background-container">
+    <p-toast></p-toast>
+    <div class="flex flex-column w-full xl:w-9 m-2 h-8">
+        <h1 class="font-bold text-5xl pt-3 pl-8">
+            Reservation Cancellation
+            <!-- <p>Enjoy life while you're young and able.</p> -->
+        </h1> 
+        <div class="flex flex-column lg:flex-row w-full justify-content-between gap-2">
+            <div class="flex flex-column w-full p-8 shadow-2 border-round gap-2 ">
+                <!-- <i class="pi pi-phone" style="font-size: 2.5rem"></i> -->
+                <div class="text-3xl font-medium text-900 mb-3">Please send us a message why you want to cancel your reservation</div>
+                <div class="font-medium text-500 mb-3">We'll look into it if we can give you full refund or partial refund</div>
+                <div class="font-medium text-500 mb-3">For more detail converstion, please contact us on our socials or email</div>
+                <!-- <div style="height: 150px" class="border-2 border-dashed surface-border"></div> -->
+                <textarea rows="10" pInputTextarea [(ngModel)]="comment"></textarea>
+                <p-button (onClick)="onSubmit()"label="Send" class="w-full"></p-button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -34,4 +34,8 @@ export class PackagesService {
   getPackage(id: string): Observable<any> {
     return this.http.get<any>(this.apiURL + "/package/" + id, this.httpOptions);
   }
+
+  deletePackage(id: string): Observable<any> {
+    return this.http.delete<any>(this.apiURL + "/package/" + id, this.httpOptions);
+  }
 }

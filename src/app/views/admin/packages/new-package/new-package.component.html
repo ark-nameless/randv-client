@@ -1,0 +1,52 @@
+<div class="flex flex-column w-full gap-2 overflow-y-visible">
+    <div class="flex flex-column h-max">
+        <h1 class="font-bold text-2xl">Create New Package</h1>
+        <div class="flex flex-column gap-2">
+            <p-toast></p-toast>
+            <div class=" h-full">
+                <div class="flex flex-column shadow-2 p-3 h-full flex flex-column surface-card"
+                    style="border-radius: 6px">
+                    <span class="p-float-label">
+                        <input pInputText id="package_name" [(ngModel)]="package.name" />
+                        <label htmlFor="package_name">Package Name</label>
+                    </span>
+                    <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                    <div class="flex align-items-center">
+                        <span class="p-float-label">
+                            <textarea class="w-full" id="package_content" [autoResize]="true" rows="5" cols="30"
+                                pInputTextarea [(ngModel)]="package.content">
+                            </textarea>
+                            <label for="package_content">Package Content</label>
+                        </span>
+                    </div>
+                    <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                    <ul class="list-none p-0 m-0 flex-grow-1">
+                        <li *ngFor="let plan of package.plans" class="flex align-items-center mb-3">
+                            <div class="flex flex-column md:flex-row justify-content-center align-items-center gap-2">
+                                <span class="text-700 text-lg font-bold m-0 p-0">{{plan.label}}: </span>
+                                <span class="p-float-label w-min">
+                                    <input pInputText id="" [(ngModel)]="plan.price" [pKeyFilter]="'int'" />
+                                    <label htmlFor="">Plan Price</label>
+                                </span>
+                                <p-calendar [(ngModel)]="plan.start_time" [hourFormat]="'12'"
+                                    [placeholder]="'Start Time'" [showTime]="true" [showSeconds]="false"
+                                    [timeOnly]="true">
+                                </p-calendar>
+                                <p-calendar [(ngModel)]="plan.end_time" [hourFormat]="'12'" [placeholder]="'End Time'"
+                                    [showTime]="true" [showSeconds]="false" [timeOnly]="true">
+                                </p-calendar>
+                            </div>
+                            <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                            <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                        </li>
+                    </ul>
+                    <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flex flex-wrap justify-content-end my-3">
+    <p-button label="Create New Package" (onClick)="onSubmit()"></p-button>
+</div>

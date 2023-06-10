@@ -1,22 +1,13 @@
-import { Component, Injector } from '@angular/core';
-
-
-import Quill from 'quill';
-import ImageResize from 'quill-image-resize';
-import { QuillEditorComponent, QuillModule } from 'ngx-quill';
-import { PackagesService } from 'src/app/apis/packages.service';
+import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
-
-Quill.register('modules/imageResize', ImageResize as any);
-
+import { PackagesService } from 'src/app/apis/packages.service';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css'],
-  providers: [MessageService]
+  selector: 'app-new-package',
+  templateUrl: './new-package.component.html',
+  styleUrls: ['./new-package.component.css']
 })
-export class SettingsComponent {
+export class NewPackageComponent {
   package = {
     name: "",
     image: "",
@@ -80,10 +71,6 @@ export class SettingsComponent {
     private messageService: MessageService,
     private packagesAPI: PackagesService
   ) {
-    this.modules = {
-      imageResize: {
-      },
-    };
     this.emptyPackage = this.package;
   }
 

@@ -55,6 +55,10 @@ export class ReservationsService {
     return this.http.put<any>(this.apiURL + '/reservation/cancel/' + id, '', this.httpOptions)
   }
 
+  checkIfValidReservationId(id: any): Observable<any> {
+    return this.http.get<any>(this.apiURL + '/reservation/valid/' + id, this.httpOptions);
+  }
+
   sendCancellationRequest(data: any): Observable<any> {
     return this.http.post<any>(this.apiURL + '/cancel', JSON.stringify(data), this.httpOptions)
   }

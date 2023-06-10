@@ -1,0 +1,14 @@
+:host ::ng-deep {
+    .p-panelmenu {
+        width: max-content;
+        .p-panelmenu-header {
+            > a {
+                color: rgba(255, 255, 255, 0.87);
+                background: #1A4637;
+            }
+        }
+        .p-panelmenu-panel {
+            box-shadow: none;
+        }
+    }
+}

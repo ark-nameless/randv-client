@@ -1,49 +1,50 @@
 <div class="flex flex-column p-3 w-full h-full">
-    <div class="flex w-full gap-2 overflow-y-visible">
-        <div class="flex flex-column w-6">
-            <h1 class="font-bold text-xl">Package Card Design</h1>
-            <p-card [style]="{ padding: '0px', margin: '0px' }" class="w-full">
-                <div class=" m-0 p-0" [injectHTML]="text">
-                </div>
-                <ng-template pTemplate="footer">
-                    <div class="flex justify-content-between w-full">
-                        <p class="text-700 text-lg font-bold m-2">Day Fee: {{dayPrice}}</p>
-                        <p class="text-700 text-lg font-bold m-2">Overnight: {{nightPrice}}</p>
-                    </div>
-                </ng-template>
-            </p-card>
-        </div>
-        <div class="flex flex-column w-6 h-max">
+    <div class="flex flex-column w-full gap-2 overflow-y-visible">
+        <div class="flex flex-column h-max">
             <p-toast></p-toast>
-            <h1 class="font-bold text-xl">Package Card Design</h1>
-            <div class="flex flex-column  border-2 border-round p-2 gap-2">
-                <div class="flex flex-column gap-1">
-                    <p class="text-xl m-2">8am - 5pm:</p>
-                    <span class="p-float-label w-full">
-                        <input pInputText id="dayPrice" [(ngModel)]="dayPrice" class="w-full"/>
-                        <label htmlFor="dayPrice">Day Time Fee</label>
-                    </span>
-                </div>
-                <div class="flex flex-column gap-1">
-                    <p class="text-xl m-2">7pm - 7am:</p>
-                    <span class="p-float-label w-full">
-                        <input pInputText id="nightPrice" [(ngModel)]="nightPrice" class="w-full"/>
-                        <label htmlFor="nightPrice">Overnight Fee</label>
-                    </span>
-                </div>
-                <div class="flex flex-column gap-1">
-                    <p class="text-xl m-2">24 hours</p>
-                    <span class="p-float-label w-full">
-                        <input pInputText id="wholeDayPrice" [(ngModel)]="wholeDayPrice" class="w-full"/>
-                        <label htmlFor="wholeDayPrice">Whole Day</label>
-                    </span>
+            <h1 class="font-bold text-xl">Package Plans</h1>
+            <div class="flex flex-column p-2 gap-2">
+                <div class="p-3 h-full">
+                    <div class="flex flex-column shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
+                        <span class="p-float-label">
+                            <input pInputText id="package_name" [(ngModel)]="package.name" />
+                            <label htmlFor="package_name">Package Name</label>
+                        </span>
+                        <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                        <div class="flex align-items-center">
+                            <span class="p-float-label">
+                                <textarea class="w-full" id="package_content" [autoResize]="true" rows="5" cols="30" pInputTextarea [(ngModel)]="package.content">
+                                </textarea>
+                                <label for="package_content">Package Content</label>
+                            </span>
+                        </div>
+                        <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                        <ul class="list-none p-0 m-0 flex-grow-1">
+                            <li *ngFor="let plan of package.plans" class="flex align-items-center mb-3">
+                                <div class="flex flex-column md:flex-row justify-content-center align-items-center gap-2">
+                                        <span class="text-700 text-lg font-bold m-0 p-0">{{plan.label}}: </span>
+                                        <span class="p-float-label w-min">
+                                            <input pInputText id="" [(ngModel)]="plan.price" [pKeyFilter]="'int'"/>
+                                            <label htmlFor="">Plan Price</label>
+                                        </span>
+                                        <p-calendar [(ngModel)]="plan.start_time" [hourFormat]="'12'"
+                                            [placeholder]="'Start Time'"
+                                            [showTime]="true" [showSeconds]="false" [timeOnly]="true">
+                                        </p-calendar>
+                                        <p-calendar [(ngModel)]="plan.end_time" [hourFormat]="'12'"
+                                            [placeholder]="'End Time'"
+                                            [showTime]="true" [showSeconds]="false" [timeOnly]="true">
+                                        </p-calendar>
+                                </div>
+                                <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                                <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                            </li>
+                        </ul>
+                        <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="card pt-5">
-        <p-editor [(ngModel)]="text" [style]="{ height: '360px' }" class="" [modules]="modules"></p-editor>
     </div>
 
     <div class="flex flex-wrap justify-content-end my-3">

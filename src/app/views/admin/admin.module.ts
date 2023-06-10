@@ -25,6 +25,17 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CalendarModule } from 'primeng/calendar';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { EditReservationComponent } from './components/edit-reservation/edit-reservation.component';
+import { NewPackageComponent } from './packages/new-package/new-package.component';
+import { AllPackagesComponent } from './packages/all-packages/all-packages.component';
+import { BasePackagesComponent } from './packages/base-packages/base-packages.component';
+import { CarouselModule } from 'primeng/carousel';
+import { UsersComponent } from './users/users.component';
+import { CancelRequestsComponent } from './reservations/cancel-requests/cancel-requests.component';
+import { AllReservationsComponent } from './reservations/all-reservations/all-reservations.component';
 
 
 @NgModule({
@@ -33,6 +44,13 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     DashboardComponent,
     SettingsComponent,
     ReservationsComponent,
+    EditReservationComponent,
+    NewPackageComponent,
+    AllPackagesComponent,
+    BasePackagesComponent,
+    UsersComponent,
+    CancelRequestsComponent,
+    AllReservationsComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +77,12 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ContextMenuModule,
     ConfirmPopupModule,
     ConfirmDialogModule,
-    
+    InputTextareaModule,
+    CalendarModule,
+    PanelMenuModule,
+    CarouselModule,
+
+
   ]
 })
 export class AdminModule { }
