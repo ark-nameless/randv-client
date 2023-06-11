@@ -31,7 +31,16 @@ export class UsersService {
     return this.http.get<any>(this.apiURL + "/auth", this.httpOptions);
   }
 
+
   toggleActiveStatus(id: any): Observable<any> {
     return this.http.put<any>(this.apiURL + "/auth/active/" + id, '', this.httpOptions);
+  }
+
+  sentForgotPassword(data: any): Observable<any> {
+    return this.http.put<any>(this.apiURL + "/auth/password/forgot", JSON.stringify(data), this.httpOptions);
+  }
+
+  passwordReset(data: any, token: any): Observable<any> {
+    return this.http.put<any>(this.apiURL + "/auth/password/reset/" + token, JSON.stringify(data), this.httpOptions);
   }
 }

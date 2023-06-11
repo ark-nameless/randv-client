@@ -11,11 +11,15 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PasswordModule } from 'primeng/password';
+
 
 @NgModule({
   declarations: [
     LoginComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     FormsModule,
@@ -30,6 +34,7 @@ import { ToastModule } from 'primeng/toast';
     ImageModule,
     RippleModule,
     ToastModule,
+    PasswordModule,
   ]
 })
 export class PagesModule { }

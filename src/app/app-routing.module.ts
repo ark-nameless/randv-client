@@ -4,6 +4,7 @@ import { LoginComponent } from './views/pages/login/login.component';
 import { ForgotPasswordComponent } from './views/pages/forgot-password/forgot-password.component';
 import { AppComponent } from './app.component';
 import { LoginGuard } from './guards/login.guard';
+import { ResetPasswordComponent } from './views/pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   // { path: '', pathMatch: "full", component: AppComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   // General Pages 
   { path: 'login', pathMatch: "full", component: LoginComponent, canActivate:[LoginGuard] },
   { path: 'forgot-password', pathMatch: "full", component: ForgotPasswordComponent, canActivate:[LoginGuard] },
+  { path: 'reset-password', pathMatch: "full", component: ResetPasswordComponent, canActivate:[LoginGuard] },
 ];
 
 @NgModule({
