@@ -30,4 +30,12 @@ export class EntraceFeesService {
   getAllEntraceFees(): Observable<any> {
     return this.http.get<any>(this.apiURL + "/entrace-fee", this.httpOptions);
   }
+
+  updateEntranceFee(data: any): Observable<any> {
+    return this.http.put<any>(this.apiURL + "/entrace-fee", JSON.stringify(data), this.httpOptions);
+  }
+
+  removeEntranceFee(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiURL + "/entrace-fee/" + id, this.httpOptions);
+  }
 }

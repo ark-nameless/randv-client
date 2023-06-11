@@ -54,7 +54,7 @@ export class AccomodationsComponent {
       this.accomodationsService.updateAccomodation(accomodation).subscribe(
         (data: any) => {
           delete this.clonedAccomodations[accomodation.id];
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Product is updated' });
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Accomodation is updated' });
         }
       )
     } else {

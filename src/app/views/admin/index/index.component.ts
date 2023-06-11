@@ -45,6 +45,16 @@ export class IndexComponent {
         routerLink: 'dashboard'
       },
       {
+        label: 'Accomodations',
+        icon: 'pi pi-fw pi-home',
+        routerLink: 'accomodations'
+      },
+      {
+        label: 'Entrace Fees',
+        icon: 'pi pi-fw pi-home',
+        routerLink: 'entrace'
+      },
+      {
         label: 'Reservations',
         icon: 'pi pi-fw pi-calendar',
         items: [
@@ -75,11 +85,6 @@ export class IndexComponent {
             routerLink: 'feedbacks/comments'
           },
         ]
-      },
-      {
-        label: 'Accomodations',
-        icon: 'pi pi-fw pi-home',
-        routerLink: 'accomodations'
       },
       {
         label: 'Packages',

@@ -40,7 +40,7 @@ export class GuestEntraceInfoComponent {
           prices: [
             { type: 'day', label: 'Day Tour', price: e.day_fee },
             { type: 'night', label: 'Overnight', price: e.night_fee },
-            // { label: '24 hrs', price: e.whole_day },
+            { label: '24 hrs', price: e.whole_day },
           ],
           selectedTime: ''
         });

@@ -46,6 +46,7 @@ import { AllReviewsComponent } from './feedbacks/all-reviews/all-reviews.compone
 import { EntraceFeesComponent } from './entrace-fees/entrace-fees.component';
 import { AccomodationsComponent } from './accomodations/accomodations.component';
 import { CreateNewAccomodationComponent } from './accomodations/create-new-accomodation/create-new-accomodation.component';
+import { NewEntraceFeeComponent } from './entrace-fees/new-entrace-fee/new-entrace-fee.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { CreateNewAccomodationComponent } from './accomodations/create-new-accom
     EntraceFeesComponent,
     AccomodationsComponent,
     CreateNewAccomodationComponent,
+    NewEntraceFeeComponent,
   ],
   imports: [
     CommonModule,

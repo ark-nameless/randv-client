@@ -1,1 +1,100 @@
-<p>entrace-fees works!</p>
+<div class="flex flex-column p-3 w-full h-full">
+    <div class="flex flex-column w-full h-full gap-2 overflow-y-visible">
+        <p-card header="All Entrance Fees">
+            <p-toast></p-toast>
+            <p-confirmPopup></p-confirmPopup>
+            <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowsPerPageOptions]="[5, 10, 25, 50]" [value]="entranceFees" dataKey="id" editMode="row" [tableStyle]="{'min-width': '50rem'}
+            ">
+                <ng-template pTemplate="caption">
+                    <div class="flex align-items-center justify-content-between">
+                        Entrance Fees
+                        <p-button icon="pi pi-plus" (click)="newEntranceFee()"></p-button>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th>Name</th>
+                        <th>Notes</th>
+                        <th>Day Fee</th>
+                        <th>Night Fee</th>
+                        <th>Whole Day Fee</th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-entrace_fee let-editing="editing" let-ri="rowIndex">
+                    <tr [pEditableRow]="entrace_fee">
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="entrace_fee.name">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{entrace_fee.name}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="entrace_fee.notes">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{entrace_fee.notes}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="entrace_fee.day_fee" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{entrace_fee.day_fee}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="entrace_fee.night_fee" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{entrace_fee.night_fee}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="entrace_fee.whole_day" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{entrace_fee.whole_day}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <div class="flex align-items-center justify-content-center gap-2">
+                                <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow
+                                    icon="pi pi-pencil" (click)="onRowEditInit(entrace_fee)"
+                                    class="p-button-rounded p-button-text"></button>
+                                <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow
+                                    icon="pi pi-check" (click)="onRowEditSave(entrace_fee)"
+                                    class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                                <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow
+                                    icon="pi pi-times" (click)="onRowEditCancel(entrace_fee, ri)"
+                                    class="p-button-rounded p-button-text p-button-danger"></button>
+                                <button pButton pRipple type="button"
+                                    icon="pi pi-ban" (click)="onRowDelete($event, entrace_fee, ri)"
+                                    class="p-button-rounded p-button-text p-button-danger"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+</div>

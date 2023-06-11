@@ -16,6 +16,7 @@ import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { AllCommentsComponent } from './feedbacks/all-comments/all-comments.component';
 import { AllReviewsComponent } from './feedbacks/all-reviews/all-reviews.component';
 import { AccomodationsComponent } from './accomodations/accomodations.component';
+import { EntraceFeesComponent } from './entrace-fees/entrace-fees.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -50,6 +51,11 @@ const routes: Routes = [
         ]
       },
       { path: 'accomodations', component: AccomodationsComponent, 
+        canActivateChild: [RoleGuard, AuthGuard], data: { expectedRole: ['admin'] },
+        children: [
+        ]
+      },
+      { path: 'entrace', component: EntraceFeesComponent, 
         canActivateChild: [RoleGuard, AuthGuard], data: { expectedRole: ['admin'] },
         children: [
         ]

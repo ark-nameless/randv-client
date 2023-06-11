@@ -1,0 +1,23 @@
+<div class="flex flex-column gap-2">
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_name">Name</label>
+        <input pInputText id="entranceFee_name" aria-describedby="name-help" [(ngModel)]="entranceFee.name" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_capacity">Notes</label>
+        <input pInputText id="entranceFee_capacity" aria-describedby="capacity-help" [(ngModel)]="entranceFee.notes" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_day_fee">Day Fee</label>
+        <input pInputText type="number" id="entranceFee_day_fee" aria-describedby="day_fee-help" [(ngModel)]="entranceFee.day_fee" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_nigh_fee">Night Fee</label>
+        <input pInputText type="number" id="entranceFee_nigh_fee" aria-describedby="night_fee-help" [(ngModel)]="entranceFee.night_fee" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_whole_day">Whole Day</label>
+        <input pInputText type="number" id="entranceFee_whole_day" aria-describedby="whole_day-help" [(ngModel)]="entranceFee.whole_day" />
+    </div>
+    <p-button (click)="createNewEntranceFee()" label="Create"></p-button>
+</div>
