@@ -1,0 +1,31 @@
+<div class="flex flex-column gap-2">
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_name">Name</label>
+        <input pInputText id="accomodation_name" aria-describedby="name-help" [(ngModel)]="accomodation.name" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_capacity">Capacity</label>
+        <input pInputText type="number" id="accomodation_capacity" aria-describedby="capacity-help" [(ngModel)]="accomodation.capacity" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_maximum">Maximum</label>
+        <input pInputText type="number" id="accomodation_maximum" aria-describedby="maximum-help" [(ngModel)]="accomodation.maximum" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_quantity">Quantity</label>
+        <input pInputText type="number" id="accomodation_quantity" aria-describedby="quantity-help" [(ngModel)]="accomodation.quantity" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_day_fee">Day Fee</label>
+        <input pInputText type="number" id="accomodation_day_fee" aria-describedby="day_fee-help" [(ngModel)]="accomodation.day_fee" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_nigh_fee">Night Fee</label>
+        <input pInputText type="number" id="accomodation_nigh_fee" aria-describedby="night_fee-help" [(ngModel)]="accomodation.night_fee" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_whole_day">Whole Day</label>
+        <input pInputText type="number" id="accomodation_whole_day" aria-describedby="whole_day-help" [(ngModel)]="accomodation.whole_day" />
+    </div>
+    <p-button (click)="createNewAccomodation()" label="Create"></p-button>
+</div>

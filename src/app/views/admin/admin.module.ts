@@ -43,6 +43,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { AllCommentsComponent } from './feedbacks/all-comments/all-comments.component';
 import { AllReviewsComponent } from './feedbacks/all-reviews/all-reviews.component';
+import { EntraceFeesComponent } from './entrace-fees/entrace-fees.component';
+import { AccomodationsComponent } from './accomodations/accomodations.component';
+import { CreateNewAccomodationComponent } from './accomodations/create-new-accomodation/create-new-accomodation.component';
 
 
 @NgModule({
@@ -62,6 +65,9 @@ import { AllReviewsComponent } from './feedbacks/all-reviews/all-reviews.compone
     FeedbacksComponent,
     AllCommentsComponent,
     AllReviewsComponent,
+    EntraceFeesComponent,
+    AccomodationsComponent,
+    CreateNewAccomodationComponent,
   ],
   imports: [
     CommonModule,

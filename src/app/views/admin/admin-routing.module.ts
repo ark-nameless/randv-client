@@ -15,6 +15,7 @@ import { ViewCancelRequestComponent } from './reservations/view-cancel-request/v
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { AllCommentsComponent } from './feedbacks/all-comments/all-comments.component';
 import { AllReviewsComponent } from './feedbacks/all-reviews/all-reviews.component';
+import { AccomodationsComponent } from './accomodations/accomodations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -46,6 +47,11 @@ const routes: Routes = [
           { path: '', component: AllReservationsComponent },
           { path: 'cancel', component: CancelRequestsComponent },
           { path: 'cancel/:id', component: ViewCancelRequestComponent },
+        ]
+      },
+      { path: 'accomodations', component: AccomodationsComponent, 
+        canActivateChild: [RoleGuard, AuthGuard], data: { expectedRole: ['admin'] },
+        children: [
         ]
       },
       // { path: 'reservations', component: ReservationsComponent },

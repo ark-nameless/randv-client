@@ -77,6 +77,11 @@ export class IndexComponent {
         ]
       },
       {
+        label: 'Accomodations',
+        icon: 'pi pi-fw pi-home',
+        routerLink: 'accomodations'
+      },
+      {
         label: 'Packages',
         icon: 'pi pi-fw pi-file-edit',
         items: [

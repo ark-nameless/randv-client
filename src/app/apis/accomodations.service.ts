@@ -27,7 +27,15 @@ export class AccomodationsService {
     return this.http.post<any>(this.apiURL + "/accomodation", JSON.stringify(data), this.httpOptions);
   }
 
+  updateAccomodation(data: any): Observable<any> {
+    return this.http.put<any>(this.apiURL + "/accomodation", JSON.stringify(data), this.httpOptions);
+  }
+
   getAllAccomodations(): Observable<any> {
     return this.http.get<any>(this.apiURL + "/accomodation", this.httpOptions);
+  }
+
+  removeAccomodation(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiURL + "/accomodation/" + id, this.httpOptions);
   }
 }

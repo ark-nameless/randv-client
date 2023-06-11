@@ -1,0 +1,122 @@
+<div class="flex flex-column p-3 w-full h-full">
+    <div class="flex flex-column w-full h-full gap-2 overflow-y-visible">
+        <p-card header="All Accomodations/Amenities">
+            <p-toast></p-toast>
+            <p-confirmPopup></p-confirmPopup>
+            <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowsPerPageOptions]="[5, 10, 25, 50]" [value]="accomodations" dataKey="id" editMode="row" [tableStyle]="{'min-width': '50rem'}
+            ">
+                <ng-template pTemplate="caption">
+                    <div class="flex align-items-center justify-content-between">
+                        Accomodations/Amenities
+                        <p-button icon="pi pi-plus" (click)="newAccomodation()"></p-button>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Maximum</th>
+                        <th>Quantity</th>
+                        <th>Day Fee</th>
+                        <th>Night Fee</th>
+                        <th>Whole Day Fee</th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-accomodation let-editing="editing" let-ri="rowIndex">
+                    <tr [pEditableRow]="accomodation">
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="accomodation.name">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{accomodation.name}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="accomodation.capacity" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{accomodation.capacity}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="accomodation.maximum" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{accomodation.maximum}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="accomodation.quantity" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{accomodation.quantity}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="accomodation.day_fee" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{accomodation.day_fee}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="accomodation.night_fee" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{accomodation.night_fee}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="number" [(ngModel)]="accomodation.whole_day" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{accomodation.whole_day}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <div class="flex align-items-center justify-content-center gap-2">
+                                <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow
+                                    icon="pi pi-pencil" (click)="onRowEditInit(accomodation)"
+                                    class="p-button-rounded p-button-text"></button>
+                                <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow
+                                    icon="pi pi-check" (click)="onRowEditSave(accomodation)"
+                                    class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                                <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow
+                                    icon="pi pi-times" (click)="onRowEditCancel(accomodation, ri)"
+                                    class="p-button-rounded p-button-text p-button-danger"></button>
+                                <button pButton pRipple type="button"
+                                    icon="pi pi-ban" (click)="onRowDelete($event, accomodation, ri)"
+                                    class="p-button-rounded p-button-text p-button-danger"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+</div>
