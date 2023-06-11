@@ -26,6 +26,7 @@ export class AllPackagesComponent {
   ngOnInit() {
     this.packagesAPI.getAllPackages().subscribe((data) => {
       this.packages = data;
+      console.log(this.packages);
     });
 
     this.responsiveOptions = [

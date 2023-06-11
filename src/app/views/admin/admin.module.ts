@@ -36,6 +36,10 @@ import { CarouselModule } from 'primeng/carousel';
 import { UsersComponent } from './users/users.component';
 import { CancelRequestsComponent } from './reservations/cancel-requests/cancel-requests.component';
 import { AllReservationsComponent } from './reservations/all-reservations/all-reservations.component';
+import { ViewCancelRequestComponent } from './reservations/view-cancel-request/view-cancel-request.component';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 
 @NgModule({
@@ -51,6 +55,7 @@ import { AllReservationsComponent } from './reservations/all-reservations/all-re
     UsersComponent,
     CancelRequestsComponent,
     AllReservationsComponent,
+    ViewCancelRequestComponent,
   ],
   imports: [
     CommonModule,
@@ -81,7 +86,10 @@ import { AllReservationsComponent } from './reservations/all-reservations/all-re
     CalendarModule,
     PanelMenuModule,
     CarouselModule,
-
+    OverlayPanelModule,
+    DynamicDialogModule,
+    SelectButtonModule,
+    
 
   ]
 })

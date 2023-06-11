@@ -11,6 +11,7 @@ import { NewPackageComponent } from './packages/new-package/new-package.componen
 import { AllPackagesComponent } from './packages/all-packages/all-packages.component';
 import { AllReservationsComponent } from './reservations/all-reservations/all-reservations.component';
 import { CancelRequestsComponent } from './reservations/cancel-requests/cancel-requests.component';
+import { ViewCancelRequestComponent } from './reservations/view-cancel-request/view-cancel-request.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
         children: [
           { path: '', component: AllReservationsComponent },
           { path: 'cancel', component: CancelRequestsComponent },
+          { path: 'cancel/:id', component: ViewCancelRequestComponent },
         ]
       },
       // { path: 'reservations', component: ReservationsComponent },

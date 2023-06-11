@@ -8,7 +8,8 @@ import { ReservationsService } from 'src/app/apis/reservations.service';
 @Component({
   selector: 'app-all-reservations',
   templateUrl: './all-reservations.component.html',
-  styleUrls: ['./all-reservations.component.css']
+  styleUrls: ['./all-reservations.component.css'],
+  providers: [MessageService, ConfirmationService, ]
 })
 export class AllReservationsComponent {
 
@@ -39,7 +40,6 @@ export class AllReservationsComponent {
     this.items = [
       { label: 'Checked In', icon: 'pi pi-fw pi-sign-in', command: () => this.setCheckedIn(this.selectedReservation) },
       { label: 'Check Out', icon: 'pi pi-fw pi-sign-out', command: () => this.setCheckOut(this.selectedReservation) },
-      { label: 'Cancel Reservation', icon: 'pi pi-fw pi-ban', command: () => this.cancelReservation(this.selectedReservation) },
       { label: 'Paid', icon: 'pi pi-fw pi-money-bill', command: () => this.togglePaid(this.selectedReservation) },
     ];
 
@@ -81,35 +81,6 @@ export class AllReservationsComponent {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
     )
-  }
-
-  cancelReservation(reservation: any) {
-    this.confirmationService.confirm({
-      message: 'Are you sure you want to cancel ' + reservation.customer_name + "'s reservation?",
-      header: 'Confirmation',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.reservationsService.cancelReservation(reservation.id).subscribe(
-          (data) => {
-            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Successfully Cancelled Reservation' });
-            setTimeout(() => { this.router.navigate([this.router.url]) }, 3000)
-          }, (err) => {
-            console.log(err)
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
-          }
-        )
-      },
-      reject: (type: any) => {
-        switch (type) {
-          case ConfirmEventType.REJECT:
-            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
-            break;
-          case ConfirmEventType.CANCEL:
-            this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
-            break;
-        }
-      }
-    });
   }
 
   togglePaid(reservation: any) {

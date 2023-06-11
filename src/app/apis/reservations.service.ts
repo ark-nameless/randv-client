@@ -39,6 +39,10 @@ export class ReservationsService {
     return this.http.get<any>(this.apiURL + "/reservation", this.httpOptions);
   }
 
+  getReservation(id: any): Observable<any> {
+    return this.http.get<any>(this.apiURL + "/reservation/" + id, this.httpOptions);
+  }
+
   checkIn(id: any): Observable<any> {
     return this.http.put<any>(this.apiURL + '/reservation/checkin/' + id, '', this.httpOptions)
   }
@@ -51,8 +55,8 @@ export class ReservationsService {
     return this.http.put<any>(this.apiURL + '/reservation/paid/toggle' + id, '', this.httpOptions)
   }
 
-  cancelReservation(id: any): Observable<any> {
-    return this.http.put<any>(this.apiURL + '/reservation/cancel/' + id, '', this.httpOptions)
+  cancelReservation(id: any, data: any): Observable<any> {
+    return this.http.put<any>(this.apiURL + '/cancel/status/' + id, JSON.stringify(data), this.httpOptions)
   }
 
   checkIfValidReservationId(id: any): Observable<any> {
@@ -61,6 +65,10 @@ export class ReservationsService {
 
   sendCancellationRequest(data: any): Observable<any> {
     return this.http.post<any>(this.apiURL + '/cancel', JSON.stringify(data), this.httpOptions)
+  }
+
+  getAllCancellationRequest(): Observable<any> {
+    return this.http.get<any>(this.apiURL + '/cancel', this.httpOptions);
   }
 
 }

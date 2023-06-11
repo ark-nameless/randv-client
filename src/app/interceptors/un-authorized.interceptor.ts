@@ -32,9 +32,11 @@ export class UnAuthorizedInterceptor implements HttpInterceptor {
           console.log('Access token expired, refreshing token...');
           if (!this.isRefreshing) {
             this.isRefreshing = true;
+            console.log('refresh')
     
             return this.sessionService.refreshAuthToken().pipe(
               mergeMap((response: any) => {
+                console.log('in pipe')
                 // Retry the original request with the new access token
                 this.sessionService.saveAccessToken(response.access_token);
                 const newAccessToken = this.sessionService.getAccessToken();

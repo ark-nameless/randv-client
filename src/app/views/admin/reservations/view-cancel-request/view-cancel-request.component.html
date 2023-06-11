@@ -1,0 +1,49 @@
+<div class="flex flex-column gap-2 ">
+    <!-- <h4>Customer Details</h4> -->
+    <div class="flex flex-colum md:flex-row gap-2 md:align-content-center md:justify-content-center m-0">
+        <div class="flex flex-column justify-content-center align-content-center gap-2">
+            <p class="p-0 m-0">Customer Name: <span class="font-bold">{{data.name}}</span></p>
+            <p class="p-0 m-0">Email: <span class="font-bold">{{data.email}}</span></p>
+            <p class="p-0 m-0">Contact No: <span class="font-bold">{{data.contactNo}}</span></p>
+            <p class="p-0 m-0">Total: <span class="font-bold">{{data.total}}</span></p>
+            <p class="p-0 m-0">Check In: <span class="font-bold">{{data.checkin}}</span></p>
+            <p class="p-0 m-0">Check Out: <span class="font-bold">{{data.checkout}}</span></p>
+            <p class="p-0 m-0">Reference No: <span class="font-bold">{{data.referenceNo}}</span></p>
+        </div>
+        <div class="p-3 h-min" *ngIf="cancelRequest.type=='package'">
+            <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
+                <div class="text-900 font-medium text-xl mb-2">{{selectedPackage.name}}</div>
+                <div class="text-600">Package Name</div>
+                <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                <div class="flex align-items-center">
+                    <div class=" m-0 p-0" [injectHTML]="selectedPackage.content"></div>
+                </div>
+                <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+                <ul class="list-none p-0 m-0 flex-grow-1">
+                    <li *ngFor="let plan of selectedPackage.plans" class="flex align-items-center mb-3">
+                        <i class="pi pi-money-bill text-purple-500 mr-2"></i>
+                        <span class="text-700 text-lg font-bold m-0 p-0">{{ plan.label }}: {{plan.price}}
+                            ({{plan.start_time}} - {{plan.end_time}})</span>
+                    </li>
+                </ul>
+                <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-column gap-2">
+        <div class="card flex justify-content-center">
+            <p-selectButton [options]="stateOptions" [(ngModel)]="payload.status" optionLabel="label" optionValue="value"></p-selectButton>
+        </div>
+        <label htmlFor="">Refund Amount</label>
+        <input pInputText id="" [(ngModel)]="payload.refund_amount" [pKeyFilter]="'int'" />
+        <label htmlFor="">Notes</label>
+        <textarea rows="5" cols="30" pInputTextarea [autoResize]="true" [(ngModel)]="payload.notes"></textarea>
+    </div>
+    <div class="flex flex-column w-full">
+        <p-toast></p-toast>
+        <p-confirmPopup></p-confirmPopup>
+        <p-button (click)="cancelReservation($event)" icon="pi pi-check" label="Refund" [disabled]="!isFilledUp()">
+        </p-button>
+    </div>
+</div>

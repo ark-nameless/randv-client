@@ -1,1 +1,63 @@
-<p>cancel-requests works!</p>
+<p-card header="All Reservation Cancellation">
+    <p-toast></p-toast>
+    <p-confirmDialog [style]="{width: '70vw'}"></p-confirmDialog>
+    <p-contextMenu #cm [model]="items"></p-contextMenu>
+    <p-table
+        #dt1
+        [(contextMenuSelection)]="selectedReservation" [contextMenu]="cm"
+        [columns]="selectedColumns" 
+        [value]="cancelRequest"
+        dataKey="id"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [tableStyle]="{'min-width': '50rem'}"
+        [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['name', 'reference_no', 'email', 'contact_no']"
+        >
+        <ng-template pTemplate="caption">
+            <div class="flex gap-2">
+                <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+            selectedItemsLabel="{0} columns selected" [style]="{'min-width': '200px'}" placeholder="Choose Columns"></p-multiSelect>
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product let-columns="columns">
+            <tr [pContextMenuRow]="product">
+                <td *ngFor="let col of columns" (click)="op.toggle($event)">
+                    {{product[col.field]}}
+                </td>
+            </tr>
+            <p-overlayPanel #op>
+                <ng-template pTemplate="content">
+                    <h4>Customer Details</h4>
+                    <p class="p-1 m-1">Customer Name: <span class="font-bold">{{reservationData.name}}</span></p>
+                    <p class="p-1 m-1">Email: <span class="font-bold">{{reservationData.email}}</span></p>
+                    <p class="p-1 m-1">Contact No: <span class="font-bold">{{reservationData.contactNo}}</span></p>
+                    <p class="p-1 m-1">Total: <span class="font-bold">{{reservationData.total}}</span></p>
+                    <p class="p-1 m-1">Check In: <span class="font-bold">{{reservationData.checkin}}</span></p>
+                    <p class="p-1 m-1">Check Out: <span class="font-bold">{{reservationData.checkout}}</span></p>
+                    <p class="p-1 m-1">Reference No: <span class="font-bold">{{reservationData.referenceNo}}</span></p>
+                </ng-template>
+            </p-overlayPanel>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">No customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

@@ -44,9 +44,11 @@ export class CancelReservationComponent {
     this.reservationService.sendCancellationRequest(payload).subscribe(
       (data: any) => {
         this.messageService.add({ severity: 'success', summary: 'Sent', detail: "Please wait for our email that we'll sent to you regarding to your cancellation. Thank you"});
+        setTimeout(() => this.router.navigate(['/']), 5000);
       }, 
       (err: any) => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error.detail});
+        setTimeout(() => this.router.navigate(['/']), 5000);
       }
     )
   }

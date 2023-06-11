@@ -50,6 +50,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { FooterComponent } from './extras/footer/footer.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { ReviewComponent } from './review/review.component';
 
 
 
@@ -69,7 +70,8 @@ import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.com
     BookPackageComponent,
     AmnetiesComponent,
     FooterComponent,
-    TermsOfServiceComponent
+    TermsOfServiceComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,
