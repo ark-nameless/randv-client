@@ -5,7 +5,6 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Table } from 'primeng/table';
 import { PackagesService } from 'src/app/apis/packages.service';
 import { ReservationsService } from 'src/app/apis/reservations.service';
-import { SetPaymentComponent } from '../set-payment/set-payment.component';
 
 @Component({
   selector: 'app-all-reservations',
@@ -45,7 +44,6 @@ export class AllReservationsComponent {
     this.items = [
       { label: 'Checked In', icon: 'pi pi-fw pi-sign-in', command: () => this.setCheckedIn(this.selectedReservation) },
       { label: 'Check Out', icon: 'pi pi-fw pi-sign-out', command: () => this.setCheckOut(this.selectedReservation) },
-      { label: 'Paid', icon: 'pi pi-fw pi-money-bill', command: () => this.setPayment(this.selectedReservation) },
     ];
 
     this.cols = [
@@ -55,10 +53,6 @@ export class AllReservationsComponent {
       { field: 'reference_no', header: 'Reference No' },
       { field: 'checked_in', header: 'Check In' },
       { field: 'checkout', header: 'Check Out' },
-      { field: 'payed', header: 'Is Paid' },
-      // { field: 'payment', header: 'Paid' },
-      { field: 'status', header: 'Status' },
-      { field: 'total_amount', header: 'Total Amount' },
     ];
 
     this._selectedColumns = this.cols;
@@ -86,47 +80,6 @@ export class AllReservationsComponent {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
     )
-  }
-
-  togglePaid(reservation: any) {
-    this.confirmationService.confirm({
-      message: 'Are you sure ' + reservation.customer_name + "'s payment is complete?",
-      header: 'Confirmation',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.reservationsService.togglePaid(reservation.id).subscribe(
-          (data) => {
-            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Successfully changed payment status' });
-            setTimeout(() => { this.router.navigate([this.router.url]) }, 3000)
-          }, (err) => {
-            console.log(err)
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
-          }
-        )
-        setTimeout(() => { window.location.reload() }, 3000)
-      },
-      reject: (type: any) => {
-        switch (type) {
-          case ConfirmEventType.REJECT:
-            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
-            break;
-          case ConfirmEventType.CANCEL:
-            this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
-            break;
-        }
-      }
-    });
-  }
-
-  setPayment(reservation: any){
-    this.ref = this.dialogService.open(SetPaymentComponent, {
-      data: reservation,
-      header: 'Set Reservation Payment',
-      width: '70%',
-      contentStyle: { overflow: 'auto' },
-      baseZIndex: 10000,
-      maximizable: true
-    })
   }
 
   @Input() get selectedColumns(): any[] {

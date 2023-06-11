@@ -47,7 +47,8 @@ import { EntraceFeesComponent } from './entrace-fees/entrace-fees.component';
 import { AccomodationsComponent } from './accomodations/accomodations.component';
 import { CreateNewAccomodationComponent } from './accomodations/create-new-accomodation/create-new-accomodation.component';
 import { NewEntraceFeeComponent } from './entrace-fees/new-entrace-fee/new-entrace-fee.component';
-
+import { SetPaymentComponent } from './reservations/set-payment/set-payment.component';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { NewEntraceFeeComponent } from './entrace-fees/new-entrace-fee/new-entra
     AccomodationsComponent,
     CreateNewAccomodationComponent,
     NewEntraceFeeComponent,
+    SetPaymentComponent,
   ],
   imports: [
     CommonModule,
@@ -103,7 +105,7 @@ import { NewEntraceFeeComponent } from './entrace-fees/new-entrace-fee/new-entra
     OverlayPanelModule,
     DynamicDialogModule,
     SelectButtonModule,
-    
+    InputSwitchModule,
 
   ]
 })

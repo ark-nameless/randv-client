@@ -1,0 +1,22 @@
+<div class="flex flex-column gap-2">
+    <div class="flex flex-column gap-2">
+        <h4>Customer Details</h4>
+        <p class="p-1 m-1">Customer Name: <span class="font-bold">{{reservationInfo.customer_name}}</span></p>
+        <p class="p-1 m-1">Email: <span class="font-bold">{{reservationInfo.email}}</span></p>
+        <p class="p-1 m-1">Contact No: <span class="font-bold">{{reservationInfo.contact_no}}</span></p>
+        <p class="p-1 m-1">Reference No: <span class="font-bold">{{reservationInfo.reference_no}}</span></p>
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_day_fee">Is Fully Paid?</label>
+            <p-inputSwitch [(ngModel)]="payload.payed"></p-inputSwitch>
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_nigh_fee">Payment</label>
+        <input pInputText type="number" id="entranceFee_nigh_fee" aria-describedby="night_fee-help" [(ngModel)]="payload.payment" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="entranceFee_whole_day">Total Payment</label>
+        <input pInputText type="number" id="entranceFee_whole_day" aria-describedby="whole_day-help" [(ngModel)]="payload.total_amount" />
+    </div>
+    <p-button (click)="setPayment()" label="Submit"></p-button>
+</div>

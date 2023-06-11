@@ -41,12 +41,13 @@ export class ReviewComponent {
     if (this.isFilledUp()){
       let payload = {
         reservation_id: this.reservationId,
-        comment: this.comment,
-        ratings: this.ratings,
+        review: this.comment,
+        rating: this.ratings,
       }
-      this.feedbackService.createNewComment(payload).subscribe(
+      console.log(payload);
+      this.feedbackService.createNewReview(payload).subscribe(
         (data: any) => {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Comment successfully sent' });
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Review successfully sent' });
           this.comment = '';
           this.ratings = 0;
           setTimeout(() => this.router.navigate(['/']), 3000);

@@ -11,15 +11,27 @@ import { RippleModule } from 'primeng/ripple';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ToastModule } from 'primeng/toast';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { AllReservationsComponent } from './reservations/all-reservations/all-reservations.component';
+import { CardModule } from 'primeng/card';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     IndexStaffComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReservationsComponent,
+    AllReservationsComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+
     StaffRoutingModule,
 
     ButtonModule,
@@ -29,6 +41,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     InputTextModule,
     TieredMenuModule,
     RippleModule,
+    CardModule,
+    ToastModule,
+    ConfirmDialogModule,
+    ContextMenuModule,
+    TableModule,
+    MultiSelectModule,
+    
+    
   ]
 })
 export class StaffModule { }
