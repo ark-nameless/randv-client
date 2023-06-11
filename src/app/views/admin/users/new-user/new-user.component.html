@@ -1,0 +1,19 @@
+<div class="flex flex-column gap-2">
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_name">Username</label>
+        <input pInputText id="accomodation_name" aria-describedby="name-help" [(ngModel)]="user.username" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_capacity">Email</label>
+        <input pInputText type="email" id="accomodation_capacity" aria-describedby="capacity-help" [(ngModel)]="user.email" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_maximum">Password</label>
+        <input pInputText id="accomodation_maximum" aria-describedby="maximum-help" [(ngModel)]="user.password" />
+    </div>
+    <div class="flex flex-column gap-2">
+        <label htmlFor="accomodation_quantity">Access Options</label>
+        <p-selectButton [options]="accessOptions" [(ngModel)]="user.access" [multiple]="true" optionLabel="name" optionValue="value"></p-selectButton>
+    </div>
+    <p-button (click)="createNewUser()" label="Create"></p-button>
+</div>

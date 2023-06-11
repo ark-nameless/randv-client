@@ -46,17 +46,12 @@ export class LoginComponent{
 
         this.sessionService.saveUser(tokenInfo)
 
-        console.log(tokenInfo)
-        console.log(typeof(tokenInfo.access))
-
         if (tokenInfo.access.includes("admin")) this.router.navigate(['/admin'])
         else if (tokenInfo.access.includes('staff')) this.router.navigate(['/staff'])
       },
       err => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Username/Password' });
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error.detail });
       }
     )
-
-    console.log(this.loginInfo);
   }
 }

@@ -49,6 +49,7 @@ import { CreateNewAccomodationComponent } from './accomodations/create-new-accom
 import { NewEntraceFeeComponent } from './entrace-fees/new-entrace-fee/new-entrace-fee.component';
 import { SetPaymentComponent } from './reservations/set-payment/set-payment.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { NewUserComponent } from './users/new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     CreateNewAccomodationComponent,
     NewEntraceFeeComponent,
     SetPaymentComponent,
+    NewUserComponent,
   ],
   imports: [
     CommonModule,

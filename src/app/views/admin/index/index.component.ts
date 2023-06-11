@@ -45,6 +45,11 @@ export class IndexComponent {
         routerLink: 'dashboard'
       },
       {
+        label: 'Users',
+        icon: 'pi pi-fw pi-users',
+        routerLink: 'users'
+      },
+      {
         label: 'Accomodations',
         icon: 'pi pi-fw pi-home',
         routerLink: 'accomodations'
