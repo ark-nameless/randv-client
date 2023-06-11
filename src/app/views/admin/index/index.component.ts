@@ -61,6 +61,22 @@ export class IndexComponent {
         ]
       },
       {
+        label: 'Feedbacks',
+        icon: 'pi pi-fw pi-comments',
+        items: [
+          {
+            label: 'All Reviews',
+            icon: 'pi pi-fw pi-book',
+            routerLink: 'feedbacks/reviews'
+          },
+          {
+            label: 'All Comments',
+            icon: 'pi pi-fw pi-envelope',
+            routerLink: 'feedbacks/comments'
+          },
+        ]
+      },
+      {
         label: 'Packages',
         icon: 'pi pi-fw pi-file-edit',
         items: [

@@ -12,6 +12,9 @@ import { AllPackagesComponent } from './packages/all-packages/all-packages.compo
 import { AllReservationsComponent } from './reservations/all-reservations/all-reservations.component';
 import { CancelRequestsComponent } from './reservations/cancel-requests/cancel-requests.component';
 import { ViewCancelRequestComponent } from './reservations/view-cancel-request/view-cancel-request.component';
+import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { AllCommentsComponent } from './feedbacks/all-comments/all-comments.component';
+import { AllReviewsComponent } from './feedbacks/all-reviews/all-reviews.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -27,6 +30,14 @@ const routes: Routes = [
         children: [
           { path: 'all', component: AllPackagesComponent },
           { path: 'new', component: NewPackageComponent },
+        ]
+      },
+      {
+        path: 'feedbacks', component: FeedbacksComponent,
+        canActivateChild: [RoleGuard, AuthGuard], data: { expectedRole: ['admin'] },
+        children: [
+          { path: 'reviews', component: AllReviewsComponent },
+          { path: 'comments', component: AllCommentsComponent },
         ]
       },
       { path: 'reservations', component: ReservationsComponent, 

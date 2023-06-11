@@ -51,7 +51,7 @@ import { FooterComponent } from './extras/footer/footer.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 import { ReviewComponent } from './review/review.component';
-
+import { RatingModule } from 'primeng/rating';
 
 
 @NgModule({
@@ -111,6 +111,8 @@ import { ReviewComponent } from './review/review.component';
     ContextMenuModule,
     GalleriaModule,
     InputTextareaModule,
+    RatingModule,
+
     
   ]
 })

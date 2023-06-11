@@ -40,6 +40,9 @@ import { ViewCancelRequestComponent } from './reservations/view-cancel-request/v
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { AllCommentsComponent } from './feedbacks/all-comments/all-comments.component';
+import { AllReviewsComponent } from './feedbacks/all-reviews/all-reviews.component';
 
 
 @NgModule({
@@ -56,6 +59,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     CancelRequestsComponent,
     AllReservationsComponent,
     ViewCancelRequestComponent,
+    FeedbacksComponent,
+    AllCommentsComponent,
+    AllReviewsComponent,
   ],
   imports: [
     CommonModule,
