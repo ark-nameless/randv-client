@@ -107,6 +107,11 @@ export class IndexComponent {
           },
         ]
       },
+      {
+        label: 'Landing Page',
+        icon: 'pi pi-fw pi-bookmark',
+        routerLink: '/'
+      },
     ];
 
     this.username = this.sessionService.getUser().username;

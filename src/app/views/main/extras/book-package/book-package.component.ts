@@ -129,8 +129,10 @@ export class BookPackageComponent {
 
       package_id: this.selectedPackage.id,
       selected_time: this.selectedPlan,
-      reference_no: this.info.reference_no,
+      reference_no: `${this.info.reference_no}`,
+      total_amount: this.total,
     }
+    console.log(payload);
 
     if (!this.filledUp()) {
       this.reservationsService.createNewPackageReservation(payload).subscribe(
