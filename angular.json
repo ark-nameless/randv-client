@@ -48,7 +48,7 @@
             ],
             "scripts": [
               "./node_modules/quill/dist/quill.min.js",
-              "../node_modules/chart.js/dist/chart.js"
+              "./node_modules/chart.js/dist/chart.js"
             ]
           },
           "configurations": {
