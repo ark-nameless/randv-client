@@ -71,6 +71,10 @@ export class ReservationsService {
     return this.http.get<any>(this.apiURL + '/cancel', this.httpOptions);
   }
 
+  getActionableCancelRequest(): Observable<any> {
+    return this.http.get<any>(this.apiURL + '/cancel/actionable', this.httpOptions);
+  }
+
   setPayment(data: any, id: any): Observable<any> {
     return this.http.put<any>(this.apiURL + '/reservation/payment/' + id, JSON.stringify(data), this.httpOptions);
   }
