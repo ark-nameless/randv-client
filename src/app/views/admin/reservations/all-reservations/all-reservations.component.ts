@@ -6,6 +6,7 @@ import { Table } from 'primeng/table';
 import { PackagesService } from 'src/app/apis/packages.service';
 import { ReservationsService } from 'src/app/apis/reservations.service';
 import { SetPaymentComponent } from '../set-payment/set-payment.component';
+import { SetCheckinComponent } from 'src/app/views/components/set-checkin/set-checkin.component';
 
 @Component({
   selector: 'app-all-reservations',
@@ -43,7 +44,7 @@ export class AllReservationsComponent {
     });
 
     this.items = [
-      { label: 'Checked In', icon: 'pi pi-fw pi-sign-in', command: () => this.setCheckedIn(this.selectedReservation) },
+      { label: 'Checked In', icon: 'pi pi-fw pi-sign-in', command: () => this.setCheckIn(this.selectedReservation) },
       { label: 'Check Out', icon: 'pi pi-fw pi-sign-out', command: () => this.setCheckOut(this.selectedReservation) },
       { label: 'Paid', icon: 'pi pi-fw pi-money-bill', command: () => this.setPayment(this.selectedReservation) },
     ];
@@ -65,7 +66,7 @@ export class AllReservationsComponent {
   }
 
   setCheckedIn(reservation: any) {
-    this.reservationsService.checkIn(reservation.id).subscribe(
+    this.reservationsService.checkIn(reservation.id, '').subscribe(
       (data) => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Guests have checked in' });
         setTimeout(() => { this.router.navigate([this.router.url]) }, 3000)
@@ -123,6 +124,18 @@ export class AllReservationsComponent {
       data: reservation,
       header: 'Set Reservation Payment',
       width: '70%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: true
+    })
+  }
+
+  setCheckIn(reservation: any) {
+    this.ref = this.dialogService.open(SetCheckinComponent, {
+      data: reservation,
+      header: 'Set Check In',
+      width: '70%',
+      height: '60%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       maximizable: true

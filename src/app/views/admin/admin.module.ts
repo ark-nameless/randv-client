@@ -50,6 +50,10 @@ import { NewEntraceFeeComponent } from './entrace-fees/new-entrace-fee/new-entra
 import { SetPaymentComponent } from './reservations/set-payment/set-payment.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { NewUserComponent } from './users/new-user/new-user.component';
+import { ComponentsModule } from '../components/components.module';
+import { ChartModule } from 'primeng/chart';
+
+
 
 @NgModule({
   declarations: [
@@ -82,6 +86,7 @@ import { NewUserComponent } from './users/new-user/new-user.component';
     ReactiveFormsModule,
 
     DirectivesModule,
+    ComponentsModule,
 
     QuillModule.forRoot(),
 
@@ -108,7 +113,9 @@ import { NewUserComponent } from './users/new-user/new-user.component';
     DynamicDialogModule,
     SelectButtonModule,
     InputSwitchModule,
+    ChartModule,
 
+    
   ]
 })
 export class AdminModule { }

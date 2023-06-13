@@ -1,1 +1,29 @@
-<p>dashboard works!</p>
+<div class="flex flex-column p-3 w-full h-full">
+    <div class="flex flex-column w-full gap-2 overflow-y-visible">
+        <h1 class="font-bold text-3xl">Dashboard</h1>
+
+        <div class="flex flex-row lg:flex-row w-full gap-4">
+            <div class="flex flex-column gap-2 w-full p-2 border-2 border-200 border-round">
+                <h1 class="font-bold text-2xl">Province Reservation Shares</h1>
+                <div class="flex gap-2">
+                    <p-calendar dateFormat="mm-dd-yy" [(ngModel)]="provinceSalesRangeDates" selectionMode="range"
+                                [readonlyInput]="true" [showButtonBar]="true"></p-calendar>
+                    <p-button (onClick)="populateProviceSales()" label="Get Sales"></p-button>
+                </div>
+                <div class="flex flex-column gap-2 p-0 m-0">
+                    <p-chart height="360" type="pie" [data]="provinceSalesData" [options]="provinceSalesOptions"></p-chart>
+                </div>
+            </div>
+            <div class="flex flex-column gap-2 w-full p-2 border-2 border-200 border-round">
+                <h1 class="font-bold text-2xl">Yearly Sales</h1>
+                <div class="flex gap-2">
+                    <p-calendar [(ngModel)]="yearlySalesDate" view="year" dateFormat="yy" inputId="yearpicker" class="p-inputtext-sm"></p-calendar>
+                    <p-button (onClick)="populateYearlySales()" label="Get Sales"></p-button>
+                </div>
+                <div class="flex flex-column gap-2 p-0 m-0">
+                    <p-chart height="360" type="bar" [data]="yearlySalesData" [options]="yearlySalesOptions"></p-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,8 +11,9 @@ import { ReservationsService } from 'src/app/apis/reservations.service';
   providers: [MessageService],
 })
 export class BookPackageComponent {
+  minDate = new Date();
   rangeDates: any = [];
-  selectedPackage: any = {}
+  selectedPackage: any = {};
   total = 0;
 
   plans: any[] = [];
@@ -37,6 +38,7 @@ export class BookPackageComponent {
     private reservationsService: ReservationsService,
     private messageService: MessageService,
   ) {
+    this.minDate.setDate(this.minDate.getDate());
     const id = this.route.snapshot.params['id'];
 
     this.packagesService.getPackage(id).subscribe(

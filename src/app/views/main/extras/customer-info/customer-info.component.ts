@@ -11,6 +11,7 @@ import { BookingInfoService } from 'src/app/services/booking-info.service';
   providers: [MessageService],
 })
 export class CustomerInfoComponent {
+  minDate = new Date();
   rangeDates: any = [];
 
   info = {
@@ -27,6 +28,7 @@ export class CustomerInfoComponent {
     private reservationsService: ReservationsService,
     private messageService: MessageService,
   ){
+    this.minDate.setDate(this.minDate.getDate());
     this.rangeDates = [];
 
     this.info.customer_name = this.bookingInfoService.bookingInfo.customer_name;

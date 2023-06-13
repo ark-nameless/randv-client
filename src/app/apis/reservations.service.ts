@@ -43,8 +43,8 @@ export class ReservationsService {
     return this.http.get<any>(this.apiURL + "/reservation/" + id, this.httpOptions);
   }
 
-  checkIn(id: any): Observable<any> {
-    return this.http.put<any>(this.apiURL + '/reservation/checkin/' + id, '', this.httpOptions)
+  checkIn(id: any, data: any): Observable<any> {
+    return this.http.put<any>(this.apiURL + '/reservation/checkin/' + id, JSON.stringify(data), this.httpOptions)
   }
 
   checkOut(id: any): Observable<any> {

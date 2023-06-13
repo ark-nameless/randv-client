@@ -19,6 +19,7 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule } from '@angular/forms';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
 
     StaffRoutingModule,
+    ComponentsModule,
 
     ButtonModule,
     ToastModule,
