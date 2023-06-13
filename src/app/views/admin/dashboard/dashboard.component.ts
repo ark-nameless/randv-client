@@ -104,7 +104,7 @@ export class DashboardComponent {
     const documentStyle = getComputedStyle(document.documentElement);
     
     let start = `01-01-${this.yearlySalesDate.getFullYear()}`;
-    let end = `12-30-${this.yearlySalesDate.getFullYear()}`;
+    let end = `30-12-${this.yearlySalesDate.getFullYear()}`;
 
     if (this.provinceSalesRangeDates.length > 0) {
       start = this.provinceSalesRangeDates[0].toLocaleDateString("es-CL");
